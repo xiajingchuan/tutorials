@@ -92,7 +92,7 @@ abstract class API{
   protected $db;
   function __constract() {
     //链接数据库
-    $this->db = $mysql;
+    $this->db = $PDO;
   }
   
   abstract function list();
