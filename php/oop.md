@@ -73,3 +73,75 @@ class Danpin {
 >继承性：继承性是子类自动共享父类之间数据和方法的机制。它由类的派生功能体现。一个类直接继承其它类的全部描述，同时可修改和扩充。继承具有传递性。继承分为单继承（一个子类只有一父类）和多重继承（一个类有多个父类）。类的对象是各自封闭的，如果没继承性机制，则类对象中数据、方法就会出现大量重复。继承不仅支持系统的可重用性，而且还促进系统的可扩充性。
 
 >多态性：对象根据所接收的消息而做出动作。同一消息为不同的对象接受时可产生完全不同的行动，这种现象称为多态性。利用多态性用户可发送一个通用的信息，而将所有的实现细节都留给接受消息的对象自行决定，如是，同一消息即可调用不同的方法。例如：Print消息被发送给一图或表时调用的打印方法与将同样的Print消息发送给一正文文件而调用的打印方法会完全不同。多态性的实现受到继承性的支持，利用类继承的层次关系，把具有通用功能的协议存放在类层次中尽可能高的地方，而将实现这一功能的不同方法置于较低层次，这样，在这些低层次上生成的对象就能给通用消息以不同的响应。在OOPL中可通过在派生类中重定义基类函数（定义为重载函数或虚函数）来实现多态性。（对方法的覆写）
+
+####抽象类####
+包含抽象方法的类叫做抽象类
+
+我们在类里面定义的没有方法体的方法就是抽象方法，所谓没有方法体就是在方法声明的时候没有大括号以及其中的内容，而是直接声明时在方法名后加上分号结束，另外在声明抽象方法时还要加一个关键字"abstract"来修饰：
+>abstract function fun1();
+
+####接口####
+
+
+---------
+综合例子：
+> api.class.php
+
+```php
+abstract class API{
+  protected $db;
+  function __constract() {
+    //链接数据库
+    $this->db = $mysql;
+  }
+  
+  abstract function list();
+  abstract function add();
+  abstract function edit();
+  abstract function delete();
+}
+```
+
+> danpin.class.php
+
+```php
+class Danpin extends API {
+  public function list() {
+    //do somthing
+  }
+  
+  public function add() {
+    //do somthing
+  }
+  
+  public function edit() {
+    //do somthing
+  }
+  
+  public function delete() {
+    // do somthing
+  }
+}
+```
+
+> product.class.php
+
+```php
+class Product extends API {
+  public function list() {
+    //do somthing
+  }
+  
+  public function add() {
+    //do somthing
+  }
+  
+  public function edit() {
+    //do somthing
+  }
+  
+  public function delete() {
+    // do somthing
+  }
+}
+```
