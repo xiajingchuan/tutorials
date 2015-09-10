@@ -40,7 +40,7 @@ $myDog->watchHouse();
 
 那写到类里面是什么样呢？我们只要定义一个类文件 Danpin.class.php
 
-```
+```php
 class Danpin {
   public function list() {
     //do somthing
